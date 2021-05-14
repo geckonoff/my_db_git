@@ -9,4 +9,8 @@ install:
 script:
   - molecule --version
   - ansible --version
-  - molecule test
+  - molecule init scenario -r my_db_git -d docker
+  - molecule create
+  - molecule converge
+  - molecule verify
+  - molecule destroy
